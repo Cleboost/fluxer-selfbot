@@ -1,77 +1,80 @@
-# 🚀 fluxer-selfbot
+# 🤖 fluxer-selfbot
 
-**fluxer-selfbot** is a premium, all-in-one bundle of the FluxerJS SDK, specifically optimized for building self-bots on [Fluxer](https://fluxer.app). It is an optimized fork of [fluxerjs/core](https://github.com/fluxerjs/core) that provides zero-config defaults, stealth client properties, and includes all necessary tools (builders, rest, ws) in a single, lightweight package.
-
-[![npm version](https://img.shields.io/npm/v/fluxer-selfbot.svg?style=flat-square)](https://www.npmjs.com/package/fluxer-selfbot)
-[![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg?style=flat-square)](LICENSE)
-
----
-
-## ✨ Features
-
-- **📦 All-in-One**: Includes `core`, `rest`, `ws`, `builders`, `collection`, and `util` in a single bundle.
-- **🕵️ Stealth by Default**: Mimics the official Discord Client properties (OS, Browser, Device) to avoid detection..
-- **🤏 Lightweight**: Minified and optimized bundle (~0.45MB).
-- **💪 Fully Typed**: High-quality TypeScript declarations included for a perfect developer experience.
+<div align="center">
+  <p><b>A simple, all-in-one SDK for building self-bots on <a href="https://fluxer.app">Fluxer</a>.</b></p>
+  <p>
+    <a href="https://www.npmjs.com/package/fluxer-selfbot"><img src="https://img.shields.io/npm/v/fluxer-selfbot.svg?style=flat-square&color=5865F2" alt="npm version"></a>
+    <a href="LICENSE"><img src="https://img.shields.io/badge/license-Apache--2.0-blue.svg?style=flat-square" alt="License"></a>
+    <a href="https://bun.sh"><img src="https://img.shields.io/badge/Bundled%20with-Bun-f9f1e1?style=flat-square&logo=bun" alt="Bun"></a>
+  </p>
+</div>
 
 ---
 
-## 🚀 Quick Start
+## 💡 What is fluxer-selfbot?
+
+`fluxer-selfbot` is a fork of the FluxerJS core, specifically adjusted for self-bot development. It bundles everything you need (REST, WebSockets, Builders, and Voice) into a single package to make it easier to get started without complex configurations.
+
+### �️ Key Features
+
+- **📦 All-in-One**: Access core logic, REST, and Gateway from a single import.
+- **🕵️ Basic Stealth**: Includes automatic client spoofing to help mimic a standard browser or desktop client.
+- **🎙️ Voice Support**: Support for joining channels and playing audio is included by default.
+- **⚡ Bun friendly**: Designed to run smoothly on Bun, but compatible with other runtimes.
+- **🛡️ Typed**: Fully written in TypeScript for better developer experience.
+
+---
+
+## 🚀 Getting Started
 
 ### Installation
 
-```bash
-# Using Bun (Recommended)
-bun add fluxer-selfbot
+You can install it using **Bun**:
 
-# Using npm
-npm install fluxer-selfbot
+```bash
+bun add fluxer-selfbot
 ```
 
-### Basic Self-bot Example
+### Simple Example
 
 ```typescript
-import { Client, Events, EmbedBuilder } from 'fluxer-selfbot';
+import { Client, Events } from 'fluxer-selfbot';
 
-// Zero configuration needed for self-bots!
 const client = new Client();
 
 client.on(Events.Ready, () => {
-    console.log(`🚀 Connected as ${client.user?.username}!`);
+    console.log(`Connected as ${client.user?.username}`);
 });
 
 client.on(Events.MessageCreate, async (message) => {
     if (message.content === '!ping') {
-        // Self-bot behavior: edit your own message instead of replying
-        await message.edit({content: '🏓 **Pong!** My first self-bot message.'});
+        await message.edit({ content: '🏓 **Pong!**' });
     }
 });
 
-// Use your user token
 await client.login('YOUR_USER_TOKEN');
 ```
 
 ---
 
-## 🛠️ Included Tools
+## 📚 Resources
 
-No need to install multiple packages. Everything is re-exported from `fluxer-selfbot`:
-
-- **`EmbedBuilder`**: Create beautiful rich embeds.
-- **`Collection`**: Powerful data structures for caching.
-- **`Events`**: Typed gateway event constants.
-- **`PermissionsBitField`**: Easy permission handling.
-- **`Routes`**: Full REST API route map.
+- **📖 [Documentation](https://fluxerjs.blstmo.com)**: Full API reference and guides.
+- **🧪 [Examples](./examples)**: Simple scripts and patterns to learn from.
+- **📦 [Internal Packages](./packages)**: The modular parts under the hood.
 
 ---
 
-## ⚠️ Disclaimer
+## ⚠️ Important Disclaimer
 
-**Self-bots are against the Terms of Service of most messaging platforms.** 
-Using this library for self-botting on Fluxer or any other platform is at your own risk. The authors are not responsible for any account termination or consequences resulting from the use of this software.
+**Self-botting is against the Terms of Service of most messaging platforms.** 
+Using this SDK is at your own risk. The developers are not responsible for any account bans or other consequences. Please use responsibly.
 
 ---
 
-## 📄 License
+<p align="center">
+  Built with ❤️ for the community.
+</p>
 
-Apache-2.0
+
+
