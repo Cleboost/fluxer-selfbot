@@ -7,11 +7,10 @@
   "description": "A fully-featured SDK for Fluxer bots",
   "repository": {
     "type": "git",
-    "url": "https://github.com/fluxerjs/core.git",
+    "url": "https://github.com/Cleboost/fluxer-selfbot.git",
     "directory": "packages/fluxer-core"
   },
-  "bugs": "https://github.com/fluxerjs/core/issues",
-  "homepage": "https://fluxerjs.blstmo.com",
+  "bugs": "https://github.com/Cleboost/fluxer-selfbot/issues",
   "keywords": [
     "fluxer",
     "discord",

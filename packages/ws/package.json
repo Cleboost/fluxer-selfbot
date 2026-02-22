@@ -7,11 +7,10 @@
   "description": "WebSocket manager for the Fluxer Gateway",
   "repository": {
     "type": "git",
-    "url": "https://github.com/fluxerjs/core.git",
+    "url": "https://github.com/Cleboost/fluxer-selfbot.git",
     "directory": "packages/ws"
   },
-  "bugs": "https://github.com/fluxerjs/core/issues",
-  "homepage": "https://fluxerjs.blstmo.com",
+  "bugs": "https://github.com/Cleboost/fluxer-selfbot/issues",
   "keywords": [
     "fluxer",
     "websocket",

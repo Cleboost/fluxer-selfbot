@@ -38,5 +38,10 @@
     "packages/*",
     "examples",
     "apps/*"
-  ]
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Cleboost/fluxer-selfbot.git"
+  },
+  "bugs": "https://github.com/Cleboost/fluxer-selfbot/issues"
 }

@@ -7,11 +7,10 @@
   "description": "Shared utilities for @fluxerjs/core",
   "repository": {
     "type": "git",
-    "url": "https://github.com/fluxerjs/core.git",
+    "url": "https://github.com/Cleboost/fluxer-selfbot.git",
     "directory": "packages/util"
   },
-  "bugs": "https://github.com/fluxerjs/core/issues",
-  "homepage": "https://fluxerjs.blstmo.com",
+  "bugs": "https://github.com/Cleboost/fluxer-selfbot/issues",
   "keywords": [
     "fluxer",
     "util",
