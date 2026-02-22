@@ -43,7 +43,7 @@ client.on(Events.Ready, () => {
 client.on(Events.MessageCreate, async (message) => {
     if (message.content === '!ping') {
         // Self-bot behavior: edit your own message instead of replying
-        await message.edit('🏓 **Pong!** My first self-bot message.');
+        await message.edit({content: '🏓 **Pong!** My first self-bot message.'});
     }
 });
 
