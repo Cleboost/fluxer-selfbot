@@ -1,6 +1,6 @@
 {
 	"name": "fluxer-selfbot",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"packageManager": "bun@1.3.9",
 	"private": false,
 	"main": "./dist/index.js",
