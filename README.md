@@ -1,59 +1,77 @@
-# @fluxerjs/core
+# 🚀 fluxer-selfbot
 
-[![CI](https://github.com/fluxerjs/core/actions/workflows/ci.yml/badge.svg)](https://github.com/fluxerjs/core/actions/workflows/ci.yml)
-[![CodeQL](https://github.com/fluxerjs/core/actions/workflows/codeql.yml/badge.svg)](https://github.com/fluxerjs/core/actions/workflows/codeql.yml)
-[![CodeRabbit Pull Request Reviews](https://img.shields.io/coderabbit/prs/github/fluxerjs/core?utm_source=oss&utm_medium=github&utm_campaign=fluxerjs%2Fcore&labelColor=171717&color=FF570A&link=https%3A%2F%2Fcoderabbit.ai&label=CodeRabbit+Reviews)](https://coderabbit.ai)
-[![npm version](https://img.shields.io/npm/v/@fluxerjs/core.svg)](https://www.npmjs.com/package/@fluxerjs/core)
-[![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
+**fluxer-selfbot** is a premium, all-in-one bundle of the FluxerJS SDK, specifically optimized for building self-bots on [Fluxer](https://fluxer.app). It is an optimized fork of [fluxerjs/core](https://github.com/fluxerjs/core) that provides zero-config defaults, stealth client properties, and includes all necessary tools (builders, rest, ws) in a single, lightweight package.
 
-SDK for building bots on [Fluxer](https://fluxer.app).
+[![npm version](https://img.shields.io/npm/v/fluxer-selfbot.svg?style=flat-square)](https://www.npmjs.com/package/fluxer-selfbot)
+[![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg?style=flat-square)](LICENSE)
 
-## Install
+---
+
+## ✨ Features
+
+- **📦 All-in-One**: Includes `core`, `rest`, `ws`, `builders`, `collection`, and `util` in a single bundle.
+- **🕵️ Stealth by Default**: Mimics the official Discord Client properties (OS, Browser, Device) to avoid detection..
+- **🤏 Lightweight**: Minified and optimized bundle (~0.45MB).
+- **💪 Fully Typed**: High-quality TypeScript declarations included for a perfect developer experience.
+
+---
+
+## 🚀 Quick Start
+
+### Installation
 
 ```bash
-npm install @fluxerjs/core
+# Using Bun (Recommended)
+bun add fluxer-selfbot
+
+# Using npm
+npm install fluxer-selfbot
 ```
 
-## Usage
+### Basic Self-bot Example
 
-```javascript
-import { Client, Events } from '@fluxerjs/core';
+```typescript
+import { Client, Events, EmbedBuilder } from 'fluxer-selfbot';
 
-const client = new Client({ intents: 0 });
+// Zero configuration needed for self-bots!
+const client = new Client();
 
-client.on(Events.Ready, () => console.log('Ready'));
-client.on(Events.MessageCreate, async (m) => {
-  if (m.content === '!ping') await m.reply('Pong');
+client.on(Events.Ready, () => {
+    console.log(`🚀 Connected as ${client.user?.username}!`);
 });
 
-await client.login(process.env.FLUXER_BOT_TOKEN);
+client.on(Events.MessageCreate, async (message) => {
+    if (message.content === '!ping') {
+        // Self-bot behavior: edit your own message instead of replying
+        await message.edit('🏓 **Pong!** My first self-bot message.');
+    }
+});
+
+// Use your user token
+await client.login('YOUR_USER_TOKEN');
 ```
 
-See [`examples/ping-bot.js`](./examples/ping-bot.js) for voice, embeds, and more.
+---
 
-## Documentation
+## 🛠️ Included Tools
 
-The docs site is a custom Vue app that pulls API docs from the SDK via a custom docgen (TypeScript Compiler API).
+No need to install multiple packages. Everything is re-exported from `fluxer-selfbot`:
 
-**From the repo root:**
+- **`EmbedBuilder`**: Create beautiful rich embeds.
+- **`Collection`**: Powerful data structures for caching.
+- **`Events`**: Typed gateway event constants.
+- **`PermissionsBitField`**: Easy permission handling.
+- **`Routes`**: Full REST API route map.
 
-```bash
-# Dev server — http://localhost:3333
-pnpm run docs:dev
+---
 
-# Generate docs JSON + build the site
-pnpm run docs:build
+## ⚠️ Disclaimer
 
-# Preview the production build
-pnpm run docs:preview
-```
+**Self-bots are against the Terms of Service of most messaging platforms.** 
+Using this library for self-botting on Fluxer or any other platform is at your own risk. The authors are not responsible for any account termination or consequences resulting from the use of this software.
 
-**What each command does:**
+---
 
-- `docs:dev` — Start Vite dev server; loads `public/docs/main.json` at runtime
-- `docs:build` — Runs `generate:docs` (merges all packages into one JSON) then builds the site
-- `docs:preview` — Serves the built site for testing
-
-## License
+## 📄 License
 
 Apache-2.0

@@ -166,6 +166,35 @@ function createEventMethods(client: Client): ClientEventMethods {
 }
 
 /** Main Fluxer bot client. Connects to the gateway, emits events, and provides REST access. */
+export interface Client extends EventEmitter {
+	on<K extends keyof ClientEvents>(
+		event: K,
+		listener: (...args: ClientEvents[K]) => void,
+	): this;
+	on(event: string | symbol, listener: (...args: any[]) => void): this;
+
+	once<K extends keyof ClientEvents>(
+		event: K,
+		listener: (...args: ClientEvents[K]) => void,
+	): this;
+	once(event: string | symbol, listener: (...args: any[]) => void): this;
+
+	emit<K extends keyof ClientEvents>(
+		event: K,
+		...args: ClientEvents[K]
+	): boolean;
+	emit(event: string | symbol, ...args: any[]): boolean;
+
+	off<K extends keyof ClientEvents>(
+		event: K,
+		listener: (...args: ClientEvents[K]) => void,
+	): this;
+	off(event: string | symbol, listener: (...args: any[]) => void): this;
+
+	removeAllListeners<K extends keyof ClientEvents>(event?: K): this;
+	removeAllListeners(event?: string | symbol): this;
+}
+
 export class Client extends EventEmitter {
 	readonly rest: REST;
 	readonly guilds = new GuildManager(this);

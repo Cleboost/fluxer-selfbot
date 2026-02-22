@@ -1,4 +1,4 @@
-import { Client, Events } from "../dist/index.js";
+import { Client, Events, EmbedBuilder } from "../dist/index.js";
 
 const client = new Client();
 
@@ -13,7 +13,11 @@ client.on(Events.Error, (err) => console.error(`[WS ERROR]`, err));
 
 client.on(Events.MessageCreate, async (message) => {
 	if (message.content === "!self") {
-		await message.edit("Ceci est un test de selfbot avec **FluxerJS** ! 🚀");
+		await message.edit({
+			embeds: [
+				new EmbedBuilder().addFields({ name: "coucou", value: "coucou" }),
+			],
+		});
 	}
 });
 
