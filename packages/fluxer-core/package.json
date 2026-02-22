@@ -1,5 +1,5 @@
 {
-  "name": "@fluxerjs/core",
+  "name": "@fluxer-selfbot/core",
   "version": "1.2.2",
   "license": "Apache-2.0",
   "main": "./dist/index.js",
@@ -19,12 +19,12 @@
     "test:coverage": "vitest run --coverage --passWithNoTests"
   },
   "dependencies": {
-    "@fluxerjs/rest": "workspace:*",
-    "@fluxerjs/ws": "workspace:*",
-    "@fluxerjs/builders": "workspace:*",
-    "@fluxerjs/collection": "workspace:*",
-    "@fluxerjs/util": "workspace:*",
-    "@fluxerjs/types": "workspace:*"
+    "@fluxer-selfbot/rest": "workspace:*",
+    "@fluxer-selfbot/ws": "workspace:*",
+    "@fluxer-selfbot/builders": "workspace:*",
+    "@fluxer-selfbot/collection": "workspace:*",
+    "@fluxer-selfbot/util": "workspace:*",
+    "@fluxer-selfbot/types": "workspace:*"
   },
   "devDependencies": {
     "@types/node": "^20.0.0",

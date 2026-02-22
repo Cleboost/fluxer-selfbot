@@ -1,5 +1,5 @@
 {
-  "name": "@fluxerjs/ws",
+  "name": "@fluxer-selfbot/ws",
   "version": "1.2.2",
   "license": "Apache-2.0",
   "main": "./dist/index.js",
@@ -19,8 +19,8 @@
     "test:coverage": "vitest run --coverage --passWithNoTests"
   },
   "dependencies": {
-    "@fluxerjs/types": "workspace:*",
-    "ws": "^8.18.0"
+    "ws": "^8.18.0",
+    "@fluxer-selfbot/types": "workspace:*"
   },
   "devDependencies": {
     "@types/node": "^20.0.0",

@@ -1,5 +1,5 @@
 {
-  "name": "@fluxerjs/docgen",
+  "name": "@fluxer-selfbot/docgen",
   "version": "1.2.2",
   "private": true,
   "type": "module",

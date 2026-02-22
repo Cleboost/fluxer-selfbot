@@ -1,9 +1,9 @@
 {
-  "name": "@fluxerjs/util",
+  "name": "@fluxer-selfbot/util",
   "version": "1.2.2",
   "license": "Apache-2.0",
   "dependencies": {
-    "@fluxerjs/types": "workspace:*"
+    "@fluxer-selfbot/types": "workspace:*"
   },
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",

@@ -16,19 +16,19 @@
     "build:prod": "bun run build:selfbot && bun run build:types"
   },
   "devDependencies": {
-    "@fluxerjs/builders": "workspace:*",
-    "@fluxerjs/collection": "workspace:*",
-    "@fluxerjs/core": "workspace:*",
-    "@fluxerjs/rest": "workspace:*",
-    "@fluxerjs/types": "workspace:*",
-    "@fluxerjs/util": "workspace:*",
-    "@fluxerjs/voice": "workspace:*",
-    "@fluxerjs/ws": "workspace:*",
     "dotenv": "^17.3.1",
     "globals": "^17.3.0",
     "lint-staged": "^16.2.7",
     "turbo": "^2.3.0",
-    "typescript": "^5.6.0"
+    "typescript": "^5.6.0",
+    "@fluxer-selfbot/builders": "workspace:*",
+    "@fluxer-selfbot/collection": "workspace:*",
+    "@fluxer-selfbot/core": "workspace:*",
+    "@fluxer-selfbot/rest": "workspace:*",
+    "@fluxer-selfbot/types": "workspace:*",
+    "@fluxer-selfbot/util": "workspace:*",
+    "@fluxer-selfbot/voice": "workspace:*",
+    "@fluxer-selfbot/ws": "workspace:*"
   },
   "overrides": {
     "tar": ">=7.5.8",

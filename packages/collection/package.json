@@ -1,5 +1,5 @@
 {
-  "name": "@fluxerjs/collection",
+  "name": "@fluxer-selfbot/collection",
   "version": "1.2.2",
   "license": "Apache-2.0",
   "main": "./dist/index.js",

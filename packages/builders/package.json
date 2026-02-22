@@ -1,5 +1,5 @@
 {
-  "name": "@fluxerjs/builders",
+  "name": "@fluxer-selfbot/builders",
   "version": "1.2.2",
   "license": "Apache-2.0",
   "main": "./dist/index.js",
@@ -19,8 +19,8 @@
     "test:coverage": "vitest run --coverage --passWithNoTests"
   },
   "dependencies": {
-    "@fluxerjs/types": "workspace:*",
-    "@fluxerjs/util": "workspace:*"
+    "@fluxer-selfbot/types": "workspace:*",
+    "@fluxer-selfbot/util": "workspace:*"
   },
   "devDependencies": {
     "typescript": "^5.6.0"
