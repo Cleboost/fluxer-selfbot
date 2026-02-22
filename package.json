@@ -15,16 +15,10 @@
 		"build": "bun run build:selfbot && bun run build:types"
 	},
 	"devDependencies": {
-		"@types/node": "^25.3.0",
-		"dotenv": "^17.3.1",
-		"globals": "^17.3.0"
+		"@types/node": "^25.3.0"
 	},
 	"peerDependencies": {
 		"typescript": "^5.6.0"
-	},
-	"overrides": {
-		"tar": ">=7.5.8",
-		"minimatch": ">=10.2.1"
 	},
 	"workspaces": [
 		"packages/*"
