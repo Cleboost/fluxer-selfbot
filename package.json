@@ -5,32 +5,7 @@
   "license": "Apache-2.0",
   "description": "@fluxerjs SDK monorepo",
   "scripts": {
-    "build": "turbo run build",
-    "test": "turbo run test",
-    "test:esm": "node scripts/test-esm-imports.mjs",
-    "test:cjs": "node scripts/test-cjs-require.mjs",
-    "test:load": "pnpm run test:esm && pnpm run test:cjs && pnpm run test:exports",
-    "test:exports": "node scripts/test-package-exports.mjs",
-    "test:smoke": "node scripts/test-smoke.mjs",
-    "test:all": "pnpm run build && pnpm exec vitest run && pnpm run test:load && pnpm run test:smoke",
-    "test:report": "pnpm run build && pnpm exec vitest run --reporter json --outputFile.json=test-results/results.json",
-    "lint": "turbo run lint --filter=!@fluxerjs/docs",
-    "lint:fix": "turbo run lint:fix --filter=!@fluxerjs/docs",
-    "format": "prettier --write .",
-    "format:check": "prettier --check .",
-    "test:coverage": "vitest run --coverage",
-    "clean": "turbo run clean && rm -rf node_modules",
-    "generate:types": "pnpm exec tsx scripts/generate-types.ts",
-    "generate:emoji": "pnpm exec tsx scripts/generate-emoji-shortcodes.ts",
-    "generate:docs": "pnpm exec tsx scripts/generate-docs.ts",
-    "generate:rag": "pnpm run generate:docs && pnpm exec tsx scripts/generate-ai-rag.ts",
-    "docs:generate": "pnpm run build && pnpm run generate:docs",
-    "docs:dev": "pnpm --filter @fluxerjs/docs dev",
-    "docs:build": "pnpm run build && pnpm run generate:docs && pnpm --filter @fluxerjs/docs build",
-    "docs:preview": "pnpm --filter @fluxerjs/docs preview",
-    "docs:deploy": "pnpm run docs:build && wrangler deploy",
-    "publish:packages": "node scripts/publish-ordered.js",
-    "publish:packages:all": "pnpm run build && pnpm -r publish --no-git-checks --filter '!./examples'"
+    "build": "turbo run build"
   },
   "devDependencies": {
     "@fluxerjs/builders": "workspace:*",
@@ -62,7 +37,6 @@
     "vue-eslint-parser": "^10.4.0",
     "wrangler": "^4.0.0"
   },
-  "packageManager": "pnpm@9.14.2",
   "engines": {
     "node": ">=18.0.0"
   },
