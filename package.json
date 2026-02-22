@@ -3,9 +3,11 @@
   "version": "1.2.2",
   "private": true,
   "license": "Apache-2.0",
-  "description": "@fluxerjs SDK monorepo",
+  "description": "",
   "scripts": {
-    "build": "turbo run build"
+    "build": "turbo run build",
+    "build:selfbot": "bun build ./packages/fluxer-core/src/index.ts --outfile ./dist/fluxer-selfbot.js --target node --bundle --minify",
+    "build:types": "bunx dts-bundle-generator -o ./dist/fluxer-selfbot.d.ts ./packages/fluxer-core/src/index.ts --no-check"
   },
   "devDependencies": {
     "@fluxerjs/builders": "workspace:*",
@@ -36,9 +38,6 @@
     "vitest": "^4.0.18",
     "vue-eslint-parser": "^10.4.0",
     "wrangler": "^4.0.0"
-  },
-  "engines": {
-    "node": ">=18.0.0"
   },
   "overrides": {
     "tar": ">=7.5.8",

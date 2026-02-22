@@ -1,4 +1,4 @@
-import { Client, Events } from "../packages/fluxer-core/dist/index.js";
+import { Client, Events } from "../dist/index.js";
 
 const client = new Client();
 
