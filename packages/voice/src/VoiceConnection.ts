@@ -178,6 +178,10 @@ export class VoiceConnection extends EventEmitter {
 					const address =
 						(d as { address?: string }).address ??
 						this._endpoint?.split(":")[0];
+					if (!address) {
+						this.emit("error", new Error("Could not determine UDP address"));
+						return;
+					}
 					this.remoteUdpAddress = address;
 					this.remoteUdpPort = port;
 					this.setupUDP(address, port, () => {

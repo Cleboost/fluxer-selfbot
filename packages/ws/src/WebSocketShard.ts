@@ -58,6 +58,7 @@ export class WebSocketShard extends EventEmitter {
 	/** Current reconnect delay in ms; resets on successful connect. */
 	private reconnectDelayMs = RECONNECT_INITIAL_MS;
 	private reconnectTimeout: ReturnType<typeof setTimeout> | null = null;
+	private heartbeatAt: number | null = null;
 
 	private scheduleReconnect(): void {
 		if (this.destroying) return;
