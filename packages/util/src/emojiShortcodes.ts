@@ -7,7 +7,7 @@
  * Data is generated from Discord's emoji data (anyascii/discord-emojis).
  * Run: pnpm exec tsx scripts/generate-emoji-shortcodes.ts
  */
-import { UNICODE_EMOJI_SHORTCODES as SHORTCODES } from './emojiShortcodes.generated.js';
+import { UNICODE_EMOJI_SHORTCODES as SHORTCODES } from "./emojiShortcodes.generated.js";
 
 export const UNICODE_EMOJI_SHORTCODES = SHORTCODES;
 
@@ -16,7 +16,7 @@ export const UNICODE_EMOJI_SHORTCODES = SHORTCODES;
  * Case-insensitive. Returns undefined if the shortcode is not in the map.
  */
 export function getUnicodeFromShortcode(name: string): string | undefined {
-  if (!name || typeof name !== 'string') return undefined;
-  const key = name.toLowerCase().trim();
-  return UNICODE_EMOJI_SHORTCODES[key];
+	if (!name || typeof name !== "string") return undefined;
+	const key = name.toLowerCase().trim();
+	return UNICODE_EMOJI_SHORTCODES[key];
 }

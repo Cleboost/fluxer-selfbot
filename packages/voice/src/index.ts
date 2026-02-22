@@ -1,17 +1,24 @@
-export { VoiceManager, type VoiceManagerOptions, type VoiceStateMap } from './VoiceManager.js';
-export { VoiceConnection, type VoiceConnectionEvents } from './VoiceConnection.js';
 export {
-  LiveKitRtcConnection,
-  type LiveKitRtcConnectionEvents,
-  type LiveKitAudioFrame,
-  type LiveKitReceiveSubscription,
-  type VideoPlayOptions,
-} from './LiveKitRtcConnection.js';
-import { Client } from '@fluxer-selfbot/core';
-import { VoiceChannel } from '@fluxer-selfbot/core';
-import { VoiceManager } from './VoiceManager.js';
-import { VoiceConnection } from './VoiceConnection';
-import { LiveKitRtcConnection } from './LiveKitRtcConnection';
+	type LiveKitAudioFrame,
+	type LiveKitReceiveSubscription,
+	LiveKitRtcConnection,
+	type LiveKitRtcConnectionEvents,
+	type VideoPlayOptions,
+} from "./LiveKitRtcConnection.js";
+export {
+	VoiceConnection,
+	type VoiceConnectionEvents,
+} from "./VoiceConnection.js";
+export {
+	VoiceManager,
+	type VoiceManagerOptions,
+	type VoiceStateMap,
+} from "./VoiceManager.js";
+
+import type { Client, VoiceChannel } from "@fluxer-selfbot/core";
+import type { LiveKitRtcConnection } from "./LiveKitRtcConnection";
+import type { VoiceConnection } from "./VoiceConnection";
+import { VoiceManager } from "./VoiceManager.js";
 
 /** Union of connection types (Discord-style or LiveKit). */
 export type VoiceConnectionLike = VoiceConnection | LiveKitRtcConnection;
@@ -25,12 +32,12 @@ export type VoiceConnectionLike = VoiceConnection | LiveKitRtcConnection;
  * @returns The voice connection (LiveKitRtcConnection when using LiveKit)
  */
 export async function joinVoiceChannel(
-  client: Client,
-  channel: VoiceChannel,
-  options?: { shardId?: number },
+	client: Client,
+	channel: VoiceChannel,
+	options?: { shardId?: number },
 ): Promise<VoiceConnectionLike> {
-  const manager = getVoiceManager(client, options);
-  return manager.join(channel);
+	const manager = getVoiceManager(client, options);
+	return manager.join(channel);
 }
 
 const voiceManagers = new WeakMap<Client, VoiceManager>();
@@ -41,11 +48,14 @@ const voiceManagers = new WeakMap<Client, VoiceManager>();
  * @param client - The Fluxer client instance
  * @param options - Optional options; `shardId` for the gateway shard to use (default 0)
  */
-export function getVoiceManager(client: Client, options?: { shardId?: number }): VoiceManager {
-  let manager = voiceManagers.get(client);
-  if (!manager) {
-    manager = new VoiceManager(client, options);
-    voiceManagers.set(client, manager);
-  }
-  return manager;
+export function getVoiceManager(
+	client: Client,
+	options?: { shardId?: number },
+): VoiceManager {
+	let manager = voiceManagers.get(client);
+	if (!manager) {
+		manager = new VoiceManager(client, options);
+		voiceManagers.set(client, manager);
+	}
+	return manager;
 }

@@ -1,1 +1,1 @@
-export { Collection, type ReadonlyCollection } from './Collection.js';
+export { Collection, type ReadonlyCollection } from "./Collection.js";

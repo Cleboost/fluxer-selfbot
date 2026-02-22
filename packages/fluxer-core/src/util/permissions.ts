@@ -1,5 +1,5 @@
-import { OverwriteType, type APIChannelOverwrite } from '@fluxer-selfbot/types';
-import { ALL_PERMISSIONS_BIGINT } from '@fluxer-selfbot/util';
+import { type APIChannelOverwrite, OverwriteType } from "@fluxer-selfbot/types";
+import { ALL_PERMISSIONS_BIGINT } from "@fluxer-selfbot/util";
 
 /**
  * Compute the effective permission bitfield for a member in a channel.
@@ -13,24 +13,25 @@ import { ALL_PERMISSIONS_BIGINT } from '@fluxer-selfbot/util';
  * @returns Effective permission bitfield as bigint
  */
 export function computePermissions(
-  basePermissions: bigint,
-  overwrites: APIChannelOverwrite[],
-  memberRoles: string[],
-  memberId: string,
-  isOwner: boolean,
+	basePermissions: bigint,
+	overwrites: APIChannelOverwrite[],
+	memberRoles: string[],
+	memberId: string,
+	isOwner: boolean,
 ): bigint {
-  if (isOwner) return ALL_PERMISSIONS_BIGINT;
-  let perms = basePermissions;
-  for (const overwrite of overwrites ?? []) {
-    const applies =
-      (overwrite.type === OverwriteType.Role && memberRoles.includes(overwrite.id)) ||
-      (overwrite.type === OverwriteType.Member && overwrite.id === memberId);
-    if (!applies) continue;
-    const allow = BigInt(overwrite.allow || '0');
-    const deny = BigInt(overwrite.deny || '0');
-    perms = (perms & ~deny) | allow;
-  }
-  return perms;
+	if (isOwner) return ALL_PERMISSIONS_BIGINT;
+	let perms = basePermissions;
+	for (const overwrite of overwrites ?? []) {
+		const applies =
+			(overwrite.type === OverwriteType.Role &&
+				memberRoles.includes(overwrite.id)) ||
+			(overwrite.type === OverwriteType.Member && overwrite.id === memberId);
+		if (!applies) continue;
+		const allow = BigInt(overwrite.allow || "0");
+		const deny = BigInt(overwrite.deny || "0");
+		perms = (perms & ~deny) | allow;
+	}
+	return perms;
 }
 
 /**
@@ -38,7 +39,7 @@ export function computePermissions(
  * Administrator (bit 3) implies all permissions per Fluxer/Discord convention.
  */
 export function hasPermission(bitfield: bigint, permission: bigint): boolean {
-  const Administrator = 1n << 3n;
-  if ((bitfield & Administrator) !== 0n) return true;
-  return (bitfield & permission) === permission;
+	const Administrator = 1n << 3n;
+	if ((bitfield & Administrator) !== 0n) return true;
+	return (bitfield & permission) === permission;
 }

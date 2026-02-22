@@ -1,6 +1,6 @@
+import type { APIErrorBody, RateLimitErrorBody } from "@fluxer-selfbot/types";
+import { FluxerAPIError, HTTPError, RateLimitError } from "./errors/index.js";
 import { RateLimitManager } from "./RateLimitManager.js";
-import { FluxerAPIError, RateLimitError, HTTPError } from "./errors/index.js";
-import { APIErrorBody, RateLimitErrorBody } from "@fluxer-selfbot/types";
 import { buildFormData } from "./utils/files.js";
 
 export interface RequestOptions {
@@ -67,7 +67,7 @@ export class RequestManager {
 			...options.headers,
 		};
 		if (options.auth !== false && this.token) {
-			headers["Authorization"] = this.options.authPrefix
+			headers.Authorization = this.options.authPrefix
 				? `${this.options.authPrefix} ${this.token}`
 				: this.token;
 		}

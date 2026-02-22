@@ -1,51 +1,37 @@
-import { EventEmitter } from "events";
+import { EventEmitter } from "node:events";
 import { REST } from "@fluxer-selfbot/rest";
-import { WebSocketManager } from "@fluxer-selfbot/ws";
 import {
-	APIApplicationCommandInteraction,
-	APIEmbed,
-	GatewayGuildRoleCreateDispatchData,
-	GatewayGuildRoleDeleteDispatchData,
-	GatewayGuildRoleUpdateDispatchData,
-	GatewayInviteDeleteDispatchData,
-	GatewayMessageDeleteBulkDispatchData,
-	GatewayTypingStartDispatchData,
-	GatewayUserUpdateDispatchData,
+	type APIApplicationCommandInteraction,
+	type APIChannel,
+	type APIEmbed,
+	type APIGuild,
+	type APIInstance,
+	type APIUser,
+	type APIUserPartial,
+	type GatewayChannelPinsUpdateDispatchData,
+	type GatewayGuildEmojisUpdateDispatchData,
+	type GatewayGuildIntegrationsUpdateDispatchData,
+	type GatewayGuildRoleCreateDispatchData,
+	type GatewayGuildRoleDeleteDispatchData,
+	type GatewayGuildRoleUpdateDispatchData,
+	type GatewayGuildScheduledEventCreateDispatchData,
+	type GatewayGuildScheduledEventDeleteDispatchData,
+	type GatewayGuildScheduledEventUpdateDispatchData,
+	type GatewayGuildStickersUpdateDispatchData,
+	type GatewayInviteDeleteDispatchData,
+	type GatewayMessageDeleteBulkDispatchData,
+	type GatewayMessageReactionRemoveAllDispatchData,
+	type GatewayMessageReactionRemoveEmojiDispatchData,
+	type GatewayPresenceUpdateDispatchData,
+	type GatewayReactionEmoji,
+	type GatewayReceivePayload,
+	type GatewaySendPayload,
+	type GatewayTypingStartDispatchData,
+	type GatewayUserUpdateDispatchData,
+	type GatewayVoiceServerUpdateDispatchData,
+	type GatewayVoiceStateUpdateDispatchData,
+	type GatewayWebhooksUpdateDispatchData,
 	Routes,
-} from "@fluxer-selfbot/types";
-import { ChannelManager } from "./ChannelManager.js";
-import { GuildManager } from "./GuildManager.js";
-import { ClientOptions } from "../util/Options.js";
-import { ClientUser } from "./ClientUser.js";
-import { Guild } from "../structures/Guild.js";
-import { Channel, GuildChannel } from "../structures/Channel.js";
-import { FluxerError } from "../errors/FluxerError.js";
-import { ErrorCodes } from "../errors/ErrorCodes.js";
-import { Events } from "../util/Events.js";
-import {
-	GatewayReceivePayload,
-	GatewaySendPayload,
-	GatewayVoiceStateUpdateDispatchData,
-	GatewayVoiceServerUpdateDispatchData,
-	GatewayMessageReactionRemoveEmojiDispatchData,
-	GatewayMessageReactionRemoveAllDispatchData,
-	GatewayReactionEmoji,
-	GatewayGuildEmojisUpdateDispatchData,
-	GatewayGuildStickersUpdateDispatchData,
-	GatewayGuildIntegrationsUpdateDispatchData,
-	GatewayGuildScheduledEventCreateDispatchData,
-	GatewayGuildScheduledEventUpdateDispatchData,
-	GatewayGuildScheduledEventDeleteDispatchData,
-	GatewayChannelPinsUpdateDispatchData,
-	GatewayPresenceUpdateDispatchData,
-	GatewayWebhooksUpdateDispatchData,
-} from "@fluxer-selfbot/types";
-import {
-	APIChannel,
-	APIGuild,
-	APIUser,
-	APIUserPartial,
-	APIInstance,
 } from "@fluxer-selfbot/types";
 import {
 	emitDeprecationWarning,
@@ -53,16 +39,26 @@ import {
 	getUnicodeFromShortcode,
 	parseEmoji,
 } from "@fluxer-selfbot/util";
-import { User } from "../structures/User.js";
-import { UsersManager } from "./UsersManager.js";
-import { eventHandlers } from "./EventHandlerRegistry.js";
-import { normalizeGuildPayload } from "../util/guildUtils";
+import { WebSocketManager } from "@fluxer-selfbot/ws";
+import { ErrorCodes } from "../errors/ErrorCodes.js";
+import { FluxerError } from "../errors/FluxerError.js";
+import { Channel, type GuildChannel } from "../structures/Channel.js";
+import { Guild } from "../structures/Guild.js";
+import type { GuildBan } from "../structures/GuildBan";
+import type { GuildMember } from "../structures/GuildMember";
+import type { Invite } from "../structures/Invite";
 import { Message } from "../structures/Message";
-import { PartialMessage } from "../structures/PartialMessage";
-import { MessageReaction } from "../structures/MessageReaction";
-import { GuildMember } from "../structures/GuildMember";
-import { GuildBan } from "../structures/GuildBan";
-import { Invite } from "../structures/Invite";
+import type { MessageReaction } from "../structures/MessageReaction";
+import type { PartialMessage } from "../structures/PartialMessage";
+import { User } from "../structures/User.js";
+import { Events } from "../util/Events.js";
+import { normalizeGuildPayload } from "../util/guildUtils";
+import type { ClientOptions } from "../util/Options.js";
+import { ChannelManager } from "./ChannelManager.js";
+import { ClientUser } from "./ClientUser.js";
+import { eventHandlers } from "./EventHandlerRegistry.js";
+import { GuildManager } from "./GuildManager.js";
+import { UsersManager } from "./UsersManager.js";
 
 /**
  * Callback parameter types for client events. Use with client.on(Events.X, handler).
@@ -289,7 +285,7 @@ export class Client extends EventEmitter {
 				animated?: boolean;
 			}>;
 			const found = list.find(
-				(e) => e.name && e.name.toLowerCase() === parsed!.name.toLowerCase(),
+				(e) => e.name && e.name.toLowerCase() === parsed?.name.toLowerCase(),
 			);
 			if (found)
 				return formatEmoji({

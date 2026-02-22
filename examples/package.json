@@ -1,11 +1,11 @@
 {
-  "name": "fluxer-examples",
-  "private": true,
-  "type": "module",
-  "scripts": {},
-  "dependencies": {
-    "youtube-dl-exec": "^3.1.1",
-    "@fluxer-selfbot/core": "workspace:*",
-    "@fluxer-selfbot/voice": "workspace:*"
-  }
+	"name": "fluxer-examples",
+	"private": true,
+	"type": "module",
+	"scripts": {},
+	"dependencies": {
+		"youtube-dl-exec": "^3.1.1",
+		"@fluxer-selfbot/core": "workspace:*",
+		"@fluxer-selfbot/voice": "workspace:*"
+	}
 }

@@ -1,13 +1,12 @@
-import { Client } from "./Client.js";
-import { User } from "../structures/User.js";
 import {
-	APIGuild,
-	APIUserPartial,
-	GatewayPresenceUpdateData,
+	type APIGuild,
+	type APIUserPartial,
+	type GatewayPresenceUpdateData,
+	Routes,
 } from "@fluxer-selfbot/types";
-import { Routes } from "@fluxer-selfbot/types";
 import { Guild } from "../structures/Guild.js";
-import { GatewayOpcodes } from "@fluxer-selfbot/types";
+import { User } from "../structures/User.js";
+import type { Client } from "./Client.js";
 
 export class ClientUser extends User {
 	declare readonly client: Client;

@@ -1,13 +1,13 @@
-import { EventEmitter } from "events";
+import { EventEmitter } from "node:events";
 import {
-	GatewaySendPayload,
-	GatewayHelloData,
-	GatewayReceivePayload,
-	GatewayIdentifyData,
-	GatewayResumeData,
-	GatewayPresenceUpdateData,
+	type GatewayHelloData,
+	type GatewayIdentifyData,
+	GatewayOpcodes,
+	type GatewayPresenceUpdateData,
+	type GatewayReceivePayload,
+	type GatewayResumeData,
+	type GatewaySendPayload,
 } from "@fluxer-selfbot/types";
-import { GatewayOpcodes } from "@fluxer-selfbot/types";
 import { getDefaultWebSocketSync } from "./utils/getWebSocket.js";
 
 export type WebSocketLike = {
@@ -48,7 +48,6 @@ export class WebSocketShard extends EventEmitter {
 	private ws: WebSocketLike | null = null;
 	private readonly options: WebSocketShardOptions;
 	private heartbeatInterval: ReturnType<typeof setInterval> | null = null;
-	private heartbeatAt = 0;
 	/** True until we send a heartbeat; then false until we get HeartbeatAck. Avoids closing before first heartbeat. */
 	private lastHeartbeatAck = true;
 	private sessionId: string | null = null;

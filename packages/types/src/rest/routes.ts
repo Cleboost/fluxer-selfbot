@@ -1,4 +1,4 @@
-import { Snowflake } from "../common/snowflake.js";
+import type { Snowflake } from "../common/snowflake.js";
 
 /**
  * Route builder helpers for REST API.

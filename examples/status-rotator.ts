@@ -22,7 +22,7 @@ client.on(Events.Ready, () => {
 	console.log(`--------------------------------------------------`);
 
 	setInterval(() => {
-		const text = STATUSES[currentIndex]
+		const text = STATUSES[currentIndex];
 		client.user?.setPresence({
 			status: "online",
 			custom_status: {

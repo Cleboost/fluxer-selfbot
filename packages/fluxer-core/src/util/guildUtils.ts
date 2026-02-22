@@ -1,14 +1,14 @@
-import { APIGuild, APIRole } from '@fluxer-selfbot/types';
+import type { APIGuild, APIRole } from "@fluxer-selfbot/types";
 
 /** Guild payload shape from Fluxer gateway (GUILD_CREATE, GUILD_UPDATE, READY). */
 type GatewayGuildPayload =
-  | APIGuild
-  | {
-      id: string;
-      properties?: Record<string, unknown>;
-      roles?: APIRole[] | unknown;
-      [key: string]: unknown;
-    };
+	| APIGuild
+	| {
+			id: string;
+			properties?: Record<string, unknown>;
+			roles?: APIRole[] | unknown;
+			[key: string]: unknown;
+	  };
 
 /**
  * Normalize gateway guild payload to APIGuild shape.
@@ -17,17 +17,24 @@ type GatewayGuildPayload =
  * @returns Normalized APIGuild with roles, or null if raw is null/undefined
  */
 export function normalizeGuildPayload(
-  raw: GatewayGuildPayload | null | undefined | unknown,
+	raw: GatewayGuildPayload | null | undefined | unknown,
 ): (APIGuild & { roles?: APIRole[] }) | null {
-  if (!raw || typeof raw !== 'object') {
-    return null;
-  }
-  if ('properties' in raw && raw.properties != null && typeof raw.properties === 'object') {
-    const r = raw as { properties: Record<string, unknown>; roles?: APIRole[] | unknown };
-    return {
-      ...r.properties,
-      roles: r.roles as APIRole[] | undefined,
-    } as APIGuild & { roles?: APIRole[] };
-  }
-  return raw as APIGuild & { roles?: APIRole[] };
+	if (!raw || typeof raw !== "object") {
+		return null;
+	}
+	if (
+		"properties" in raw &&
+		raw.properties != null &&
+		typeof raw.properties === "object"
+	) {
+		const r = raw as {
+			properties: Record<string, unknown>;
+			roles?: APIRole[] | unknown;
+		};
+		return {
+			...r.properties,
+			roles: r.roles as APIRole[] | undefined,
+		} as APIGuild & { roles?: APIRole[] };
+	}
+	return raw as APIGuild & { roles?: APIRole[] };
 }

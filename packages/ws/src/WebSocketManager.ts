@@ -1,13 +1,12 @@
-import { EventEmitter } from "events";
+import { EventEmitter } from "node:events";
 import {
-	APIGatewayBotResponse,
-	GatewayPresenceUpdateData,
+	type APIGatewayBotResponse,
+	type GatewayPresenceUpdateData,
 	Routes,
 } from "@fluxer-selfbot/types";
-import { WebSocketShard } from "./WebSocketShard.js";
 import { getDefaultWebSocket } from "./utils/getWebSocket.js";
-
-import { WebSocketConstructor as WSConstructor } from "./WebSocketShard";
+import type { WebSocketConstructor as WSConstructor } from "./WebSocketShard";
+import { WebSocketShard } from "./WebSocketShard.js";
 
 export type WebSocketConstructor = WSConstructor;
 

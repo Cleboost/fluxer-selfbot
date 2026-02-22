@@ -1,29 +1,29 @@
 {
-  "name": "@fluxer-selfbot/util",
-  "version": "1.2.2",
-  "license": "Apache-2.0",
-  "dependencies": {
-    "@fluxer-selfbot/types": "workspace:*"
-  },
-  "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.js"
-    }
-  },
-  "scripts": {
-    "build": "bun build ./src/index.ts --outfile ./dist/index.js --target node --bundle && bun build ./src/index.ts --outfile ./dist/index.mjs --target node --bundle && bunx tsc --emitDeclarationOnly",
-    "clean": "rm -rf dist",
-    "test": "vitest run",
-    "test:coverage": "vitest run --coverage"
-  },
-  "devDependencies": {
-    "typescript": "^5.6.0",
-    "vitest": "^4.0.18"
-  },
-  "private": true
+	"name": "@fluxer-selfbot/util",
+	"version": "1.2.2",
+	"license": "Apache-2.0",
+	"dependencies": {
+		"@fluxer-selfbot/types": "workspace:*"
+	},
+	"main": "./dist/index.js",
+	"module": "./dist/index.mjs",
+	"types": "./dist/index.d.ts",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"import": "./dist/index.mjs",
+			"require": "./dist/index.js"
+		}
+	},
+	"scripts": {
+		"build": "bun build ./src/index.ts --outfile ./dist/index.js --target node --bundle && bun build ./src/index.ts --outfile ./dist/index.mjs --target node --bundle && bunx tsc --emitDeclarationOnly",
+		"clean": "rm -rf dist",
+		"test": "vitest run",
+		"test:coverage": "vitest run --coverage"
+	},
+	"devDependencies": {
+		"typescript": "^5.6.0",
+		"vitest": "^4.0.18"
+	},
+	"private": true
 }

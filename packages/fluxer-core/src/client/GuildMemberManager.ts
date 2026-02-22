@@ -1,7 +1,7 @@
-import { Collection } from '@fluxer-selfbot/collection';
-import { APIGuildMember, Routes } from '@fluxer-selfbot/types';
-import { Guild } from '../structures/Guild.js';
-import { GuildMember } from '../structures/GuildMember.js';
+import { Collection } from "@fluxer-selfbot/collection";
+import { type APIGuildMember, Routes } from "@fluxer-selfbot/types";
+import type { Guild } from "../structures/Guild.js";
+import { GuildMember } from "../structures/GuildMember.js";
 
 /**
  * Manages guild members with a Collection-like API.
@@ -11,81 +11,86 @@ import { GuildMember } from '../structures/GuildMember.js';
  * @discordJsCompat https://discord.js.org/docs/packages/discord.js/main/GuildMemberManager
  */
 export class GuildMemberManager extends Collection<string, GuildMember> {
-  constructor(private readonly guild: Guild) {
-    super();
-  }
+	constructor(private readonly guild: Guild) {
+		super();
+	}
 
-  /**
-   * Get a guild member from cache or fetch from the API if not present.
-   * Convenience helper to avoid repeating `guild.members.get(userId) ?? (await guild.fetchMember(userId))`.
-   * @param userId - Snowflake of the user
-   * @returns The guild member
-   * @throws FluxerError with MEMBER_NOT_FOUND if user is not in the guild (404)
-   * @example
-   * const member = await guild.members.resolve(userId);
-   * console.log(member.displayName);
-   */
-  async resolve(userId: string): Promise<GuildMember> {
-    return this.get(userId) ?? this.guild.fetchMember(userId);
-  }
+	/**
+	 * Get a guild member from cache or fetch from the API if not present.
+	 * Convenience helper to avoid repeating `guild.members.get(userId) ?? (await guild.fetchMember(userId))`.
+	 * @param userId - Snowflake of the user
+	 * @returns The guild member
+	 * @throws FluxerError with MEMBER_NOT_FOUND if user is not in the guild (404)
+	 * @example
+	 * const member = await guild.members.resolve(userId);
+	 * console.log(member.displayName);
+	 */
+	async resolve(userId: string): Promise<GuildMember> {
+		return this.get(userId) ?? this.guild.fetchMember(userId);
+	}
 
-  /**
-   * The current bot user as a GuildMember in this guild.
-   * Returns null if the bot's member is not cached or client.user is null.
-   * Use fetchMe() to load the bot's member when not cached.
-   *
-   * @discordJsCompat https://discord.js.org/docs/packages/discord.js/main/GuildMemberManager
-   * @example
-   * const perms = guild.members.me?.permissions;
-   * if (perms?.has(PermissionFlags.BanMembers)) { ... }
-   */
-  get me(): GuildMember | null {
-    const userId = this.guild.client.user?.id;
-    return userId ? (this.get(userId) ?? null) : null;
-  }
+	/**
+	 * The current bot user as a GuildMember in this guild.
+	 * Returns null if the bot's member is not cached or client.user is null.
+	 * Use fetchMe() to load the bot's member when not cached.
+	 *
+	 * @discordJsCompat https://discord.js.org/docs/packages/discord.js/main/GuildMemberManager
+	 * @example
+	 * const perms = guild.members.me?.permissions;
+	 * if (perms?.has(PermissionFlags.BanMembers)) { ... }
+	 */
+	get me(): GuildMember | null {
+		const userId = this.guild.client.user?.id;
+		return userId ? (this.get(userId) ?? null) : null;
+	}
 
-  /**
-   * Fetch the current bot user as a GuildMember in this guild.
-   * Caches the result in guild.members.
-   *
-   * @throws Error if client.user is null (client not ready)
-   * @example
-   * const me = await guild.members.fetchMe();
-   * console.log(me.displayName);
-   */
-  async fetchMe(): Promise<GuildMember> {
-    const userId = this.guild.client.user?.id;
-    if (!userId) {
-      throw new Error('Cannot fetch me: client.user is null (client not ready)');
-    }
-    return this.guild.fetchMember(userId);
-  }
+	/**
+	 * Fetch the current bot user as a GuildMember in this guild.
+	 * Caches the result in guild.members.
+	 *
+	 * @throws Error if client.user is null (client not ready)
+	 * @example
+	 * const me = await guild.members.fetchMe();
+	 * console.log(me.displayName);
+	 */
+	async fetchMe(): Promise<GuildMember> {
+		const userId = this.guild.client.user?.id;
+		if (!userId) {
+			throw new Error(
+				"Cannot fetch me: client.user is null (client not ready)",
+			);
+		}
+		return this.guild.fetchMember(userId);
+	}
 
-  /**
-   * Fetch guild members with pagination. GET /guilds/{id}/members.
-   * @param options - limit (1-1000), after (user ID for pagination)
-   * @returns Array of GuildMember objects (cached in guild.members)
-   */
-  async fetch(options?: { limit?: number; after?: string }): Promise<GuildMember[]> {
-    const params = new URLSearchParams();
-    if (options?.limit != null) params.set('limit', String(options.limit));
-    if (options?.after) params.set('after', options.after);
-    const qs = params.toString();
-    const url = Routes.guildMembers(this.guild.id) + (qs ? `?${qs}` : '');
-    const data = await this.guild.client.rest.get<
-      APIGuildMember[] | { members?: APIGuildMember[] }
-    >(url, { auth: true });
-    const list = Array.isArray(data) ? data : (data?.members ?? []);
-    const members: GuildMember[] = [];
-    for (const m of list) {
-      const member = new GuildMember(
-        this.guild.client,
-        { ...m, guild_id: this.guild.id },
-        this.guild,
-      );
-      this.set(member.id, member);
-      members.push(member);
-    }
-    return members;
-  }
+	/**
+	 * Fetch guild members with pagination. GET /guilds/{id}/members.
+	 * @param options - limit (1-1000), after (user ID for pagination)
+	 * @returns Array of GuildMember objects (cached in guild.members)
+	 */
+	async fetch(options?: {
+		limit?: number;
+		after?: string;
+	}): Promise<GuildMember[]> {
+		const params = new URLSearchParams();
+		if (options?.limit != null) params.set("limit", String(options.limit));
+		if (options?.after) params.set("after", options.after);
+		const qs = params.toString();
+		const url = Routes.guildMembers(this.guild.id) + (qs ? `?${qs}` : "");
+		const data = await this.guild.client.rest.get<
+			APIGuildMember[] | { members?: APIGuildMember[] }
+		>(url, { auth: true });
+		const list = Array.isArray(data) ? data : (data?.members ?? []);
+		const members: GuildMember[] = [];
+		for (const m of list) {
+			const member = new GuildMember(
+				this.guild.client,
+				{ ...m, guild_id: this.guild.id },
+				this.guild,
+			);
+			this.set(member.id, member);
+			members.push(member);
+		}
+		return members;
+	}
 }

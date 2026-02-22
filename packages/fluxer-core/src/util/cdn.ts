@@ -1,19 +1,19 @@
-import { CDN_URL, STATIC_CDN_URL } from './Constants.js';
+import { CDN_URL, STATIC_CDN_URL } from "./Constants.js";
 
 export interface CdnUrlOptions {
-  size?: number;
-  extension?: string;
+	size?: number;
+	extension?: string;
 }
 
 function getExtension(hash: string | null, options?: CdnUrlOptions): string {
-  const ext = options?.extension ?? 'png';
-  // Animated avatars/banners have hash starting with a_
-  if (hash?.startsWith('a_')) return 'gif';
-  return ext;
+	const ext = options?.extension ?? "png";
+	// Animated avatars/banners have hash starting with a_
+	if (hash?.startsWith("a_")) return "gif";
+	return ext;
 }
 
 function appendSize(options?: CdnUrlOptions): string {
-  return options?.size ? `?size=${options.size}` : '';
+	return options?.size ? `?size=${options.size}` : "";
 }
 
 /**
@@ -26,14 +26,14 @@ function appendSize(options?: CdnUrlOptions): string {
  * const url = cdnAvatarURL(userData.id, userData.avatar, { size: 256 });
  */
 export function cdnAvatarURL(
-  userId: string,
-  avatarHash: string | null,
-  options?: CdnUrlOptions,
+	userId: string,
+	avatarHash: string | null,
+	options?: CdnUrlOptions,
 ): string | null {
-  if (!avatarHash) return null;
-  const ext = getExtension(avatarHash, options);
-  const size = appendSize(options);
-  return `${CDN_URL}/avatars/${userId}/${avatarHash}.${ext}${size}`;
+	if (!avatarHash) return null;
+	const ext = getExtension(avatarHash, options);
+	const size = appendSize(options);
+	return `${CDN_URL}/avatars/${userId}/${avatarHash}.${ext}${size}`;
 }
 
 /**
@@ -46,11 +46,13 @@ export function cdnAvatarURL(
  * const url = cdnDisplayAvatarURL(user.id, user.avatar, { size: 64 });
  */
 export function cdnDisplayAvatarURL(
-  userId: string,
-  avatarHash: string | null,
-  options?: CdnUrlOptions,
+	userId: string,
+	avatarHash: string | null,
+	options?: CdnUrlOptions,
 ): string {
-  return cdnAvatarURL(userId, avatarHash, options) ?? cdnDefaultAvatarURL(userId);
+	return (
+		cdnAvatarURL(userId, avatarHash, options) ?? cdnDefaultAvatarURL(userId)
+	);
 }
 
 /**
@@ -63,14 +65,14 @@ export function cdnDisplayAvatarURL(
  * const url = cdnBannerURL(userData.id, profile.banner, { size: 512 });
  */
 export function cdnBannerURL(
-  resourceId: string,
-  bannerHash: string | null,
-  options?: CdnUrlOptions,
+	resourceId: string,
+	bannerHash: string | null,
+	options?: CdnUrlOptions,
 ): string | null {
-  if (!bannerHash) return null;
-  const ext = getExtension(bannerHash, options);
-  const size = appendSize(options);
-  return `${CDN_URL}/banners/${resourceId}/${bannerHash}.${ext}${size}`;
+	if (!bannerHash) return null;
+	const ext = getExtension(bannerHash, options);
+	const size = appendSize(options);
+	return `${CDN_URL}/banners/${resourceId}/${bannerHash}.${ext}${size}`;
 }
 
 /**
@@ -84,15 +86,15 @@ export function cdnBannerURL(
  * const url = cdnMemberAvatarURL(member.guild.id, member.id, member.avatar);
  */
 export function cdnMemberAvatarURL(
-  guildId: string,
-  userId: string,
-  avatarHash: string | null,
-  options?: CdnUrlOptions,
+	guildId: string,
+	userId: string,
+	avatarHash: string | null,
+	options?: CdnUrlOptions,
 ): string | null {
-  if (!avatarHash) return null;
-  const ext = getExtension(avatarHash, options);
-  const size = appendSize(options);
-  return `${CDN_URL}/guilds/${guildId}/users/${userId}/avatars/${avatarHash}.${ext}${size}`;
+	if (!avatarHash) return null;
+	const ext = getExtension(avatarHash, options);
+	const size = appendSize(options);
+	return `${CDN_URL}/guilds/${guildId}/users/${userId}/avatars/${avatarHash}.${ext}${size}`;
 }
 
 /**
@@ -104,15 +106,15 @@ export function cdnMemberAvatarURL(
  * @returns The member banner URL, or null if no guild banner
  */
 export function cdnMemberBannerURL(
-  guildId: string,
-  userId: string,
-  bannerHash: string | null,
-  options?: CdnUrlOptions,
+	guildId: string,
+	userId: string,
+	bannerHash: string | null,
+	options?: CdnUrlOptions,
 ): string | null {
-  if (!bannerHash) return null;
-  const ext = getExtension(bannerHash, options);
-  const size = appendSize(options);
-  return `${CDN_URL}/guilds/${guildId}/users/${userId}/banners/${bannerHash}.${ext}${size}`;
+	if (!bannerHash) return null;
+	const ext = getExtension(bannerHash, options);
+	const size = appendSize(options);
+	return `${CDN_URL}/guilds/${guildId}/users/${userId}/banners/${bannerHash}.${ext}${size}`;
 }
 
 /**
@@ -122,9 +124,9 @@ export function cdnMemberBannerURL(
  * @returns The default avatar URL
  */
 export function cdnDefaultAvatarURL(userIdOrIndex: string | number): string {
-  const index =
-    typeof userIdOrIndex === 'string'
-      ? Number(BigInt(userIdOrIndex) % 6n)
-      : Math.abs(Math.floor(userIdOrIndex) % 6);
-  return `${STATIC_CDN_URL}/avatars/${index}.png`;
+	const index =
+		typeof userIdOrIndex === "string"
+			? Number(BigInt(userIdOrIndex) % 6n)
+			: Math.abs(Math.floor(userIdOrIndex) % 6);
+	return `${STATIC_CDN_URL}/avatars/${index}.png`;
 }

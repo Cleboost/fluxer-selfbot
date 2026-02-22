@@ -1,4 +1,4 @@
-import { Client, Events, EmbedBuilder } from "../dist/index.js";
+import { Client, EmbedBuilder, Events } from "../dist/index.js";
 
 const client = new Client();
 

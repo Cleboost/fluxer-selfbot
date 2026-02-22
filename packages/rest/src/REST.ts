@@ -1,6 +1,6 @@
-import { EventEmitter } from "events";
-import { RequestManager } from "./RequestManager.js";
+import { EventEmitter } from "node:events";
 import { Routes } from "@fluxer-selfbot/types";
+import { RequestManager } from "./RequestManager.js";
 
 /** Options for the REST client. */
 export interface RESTOptions {
