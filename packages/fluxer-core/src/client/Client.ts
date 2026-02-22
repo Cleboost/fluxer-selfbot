@@ -1,6 +1,6 @@
 import { EventEmitter } from "events";
-import { REST } from "@fluxerjs/rest";
-import { WebSocketManager } from "@fluxerjs/ws";
+import { REST } from "@fluxer-selfbot/rest";
+import { WebSocketManager } from "@fluxer-selfbot/ws";
 import {
 	APIApplicationCommandInteraction,
 	APIEmbed,
@@ -12,7 +12,7 @@ import {
 	GatewayTypingStartDispatchData,
 	GatewayUserUpdateDispatchData,
 	Routes,
-} from "@fluxerjs/types";
+} from "@fluxer-selfbot/types";
 import { ChannelManager } from "./ChannelManager.js";
 import { GuildManager } from "./GuildManager.js";
 import { ClientOptions } from "../util/Options.js";
@@ -39,20 +39,20 @@ import {
 	GatewayChannelPinsUpdateDispatchData,
 	GatewayPresenceUpdateDispatchData,
 	GatewayWebhooksUpdateDispatchData,
-} from "@fluxerjs/types";
+} from "@fluxer-selfbot/types";
 import {
 	APIChannel,
 	APIGuild,
 	APIUser,
 	APIUserPartial,
 	APIInstance,
-} from "@fluxerjs/types";
+} from "@fluxer-selfbot/types";
 import {
 	emitDeprecationWarning,
 	formatEmoji,
 	getUnicodeFromShortcode,
 	parseEmoji,
-} from "@fluxerjs/util";
+} from "@fluxer-selfbot/util";
 import { User } from "../structures/User.js";
 import { UsersManager } from "./UsersManager.js";
 import { eventHandlers } from "./EventHandlerRegistry.js";

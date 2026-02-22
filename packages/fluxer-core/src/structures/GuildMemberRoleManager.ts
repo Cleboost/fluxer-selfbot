@@ -1,5 +1,5 @@
-import { Collection } from '@fluxerjs/collection';
-import { Routes } from '@fluxerjs/types';
+import { Collection } from '@fluxer-selfbot/collection';
+import { Routes } from '@fluxer-selfbot/types';
 import type { GuildMember } from './GuildMember.js';
 import type { Role } from './Role.js';
 
@@ -104,7 +104,7 @@ export class GuildMemberRoleManager {
    * @discordJsCompat https://discord.js.org/docs/packages/discord.js/main/GuildMemberRoleManager
    */
   async set(roleIds: string[]): Promise<void> {
-    const data = await this.member.client.rest.patch<import('@fluxerjs/types').APIGuildMember>(
+    const data = await this.member.client.rest.patch<import('@fluxer-selfbot/types').APIGuildMember>(
       Routes.guildMember(this.member.guild.id, this.member.id),
       { body: { roles: roleIds }, auth: true },
     );

@@ -1,7 +1,7 @@
 import { Client } from '../client/Client.js';
 import { Base } from './Base.js';
-import { APIBan } from '@fluxerjs/types';
-import { Routes } from '@fluxerjs/types';
+import { APIBan } from '@fluxer-selfbot/types';
+import { Routes } from '@fluxer-selfbot/types';
 import { User } from './User.js';
 
 /** Represents a ban in a guild. */

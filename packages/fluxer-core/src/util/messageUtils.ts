@@ -1,5 +1,5 @@
-import { APIEmbed } from '@fluxerjs/types';
-import { EmbedBuilder } from '@fluxerjs/builders';
+import { APIEmbed } from '@fluxer-selfbot/types';
+import { EmbedBuilder } from '@fluxer-selfbot/builders';
 
 /** Resolved file data (after URL fetch). Used internally by REST layer. */
 export interface ResolvedMessageFile {

@@ -55,28 +55,28 @@ export {
 } from "./util/ReactionCollector.js";
 export { FluxerError, type FluxerErrorOptions } from "./errors/FluxerError.js";
 export { ErrorCodes } from "./errors/ErrorCodes.js";
-export { Collection } from "@fluxerjs/collection";
+export { Collection } from "@fluxer-selfbot/collection";
 
 // Re-export builders for convenience
 export {
 	EmbedBuilder,
 	MessagePayload,
 	AttachmentBuilder,
-} from "@fluxerjs/builders";
+} from "@fluxer-selfbot/builders";
 
 // Re-export Routes, GatewayOpcodes, MessageAttachmentFlags for REST/gateway API calls
 export {
 	Routes,
 	GatewayOpcodes,
 	MessageAttachmentFlags,
-} from "@fluxerjs/types";
+} from "@fluxer-selfbot/types";
 
 // Re-export Tenor URL resolver and mention parsers for embeds and moderation
 export {
 	resolveTenorToImageUrl,
 	parseUserMention,
 	parsePrefixCommand,
-} from "@fluxerjs/util";
+} from "@fluxer-selfbot/util";
 
 // Re-export permission helpers for role/member permission checks
 export {
@@ -89,7 +89,7 @@ export {
 	type PermissionResolvable,
 	type UserFlagsString,
 	type UserFlagsResolvable,
-} from "@fluxerjs/util";
+} from "@fluxer-selfbot/util";
 
 // CDN URL helpers for avatars, banners, etc. (works with raw API data or User objects)
 export { CDN_URL, STATIC_CDN_URL } from "./util/Constants.js";

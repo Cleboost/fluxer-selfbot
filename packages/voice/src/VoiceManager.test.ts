@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { EventEmitter } from 'events';
-import { Events } from '@fluxerjs/core';
+import { Events } from '@fluxer-selfbot/core';
 import { VoiceManager } from './VoiceManager.js';
 
 /** Minimal Client mock - VoiceManager only needs .on() for voice events. */

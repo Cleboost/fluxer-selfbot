@@ -1,5 +1,5 @@
-import { APIMessage, Routes } from '@fluxerjs/types';
-import { FluxerAPIError, RateLimitError } from '@fluxerjs/rest';
+import { APIMessage, Routes } from '@fluxer-selfbot/types';
+import { FluxerAPIError, RateLimitError } from '@fluxer-selfbot/rest';
 import { FluxerError } from '../errors/FluxerError.js';
 import { ErrorCodes } from '../errors/ErrorCodes.js';
 import { Client } from './Client.js';

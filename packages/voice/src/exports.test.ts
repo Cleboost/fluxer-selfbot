@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { VoiceManager, VoiceConnection, LiveKitRtcConnection, getVoiceManager } from './index.js';
 
-describe('@fluxerjs/voice exports', () => {
+describe('@fluxer-selfbot/voice exports', () => {
   it('exports VoiceManager class', () => {
     expect(VoiceManager).toBeDefined();
     expect(typeof VoiceManager).toBe('function');

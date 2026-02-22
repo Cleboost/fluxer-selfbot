@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { buildSendBody } from './messageUtils.js';
-import { EmbedBuilder } from '@fluxerjs/builders';
+import { EmbedBuilder } from '@fluxer-selfbot/builders';
 
 describe('buildSendBody', () => {
   it('converts string to content-only body', () => {

@@ -3,4 +3,4 @@ export { RequestManager, type RequestOptions, type RestOptions } from './Request
 export { RateLimitManager, type RateLimitState } from './RateLimitManager.js';
 export { FluxerAPIError, RateLimitError, HTTPError } from './errors/index.js';
 export { buildFormData, type AttachmentPayload, type AttachmentData } from './utils/files.js';
-export { Routes } from '@fluxerjs/types';
+export { Routes } from '@fluxer-selfbot/types';

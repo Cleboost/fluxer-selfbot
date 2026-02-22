@@ -13,10 +13,10 @@ import {
   APIMessage,
   APIWebhook,
   APIInvite,
-} from '@fluxerjs/types';
-import { ChannelType, Routes } from '@fluxerjs/types';
-import { PermissionFlags } from '@fluxerjs/util';
-import { emitDeprecationWarning } from '@fluxerjs/util';
+} from '@fluxer-selfbot/types';
+import { ChannelType, Routes } from '@fluxer-selfbot/types';
+import { PermissionFlags } from '@fluxer-selfbot/util';
+import { emitDeprecationWarning } from '@fluxer-selfbot/util';
 import { User } from './User.js';
 import { Webhook } from './Webhook.js';
 import { Message } from './Message';

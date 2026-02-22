@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { computePermissions, hasPermission } from './permissions.js';
-import { OverwriteType } from '@fluxerjs/types';
-import { PermissionFlags } from '@fluxerjs/util';
+import { OverwriteType } from '@fluxer-selfbot/types';
+import { PermissionFlags } from '@fluxer-selfbot/util';
 
 const SendMessages = BigInt(PermissionFlags.SendMessages);
 const ViewChannel = BigInt(PermissionFlags.ViewChannel);

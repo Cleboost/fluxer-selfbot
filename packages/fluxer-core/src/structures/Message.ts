@@ -1,6 +1,6 @@
 import { Client } from '../client/Client.js';
 import { Base } from './Base.js';
-import { Collection } from '@fluxerjs/collection';
+import { Collection } from '@fluxer-selfbot/collection';
 import {
   APIMessage,
   APIMessageAttachment,
@@ -11,9 +11,9 @@ import {
   APIMessageCall,
   APIEmbed,
   APIUserPartial,
-} from '@fluxerjs/types';
-import { MessageType, Routes } from '@fluxerjs/types';
-import { EmbedBuilder } from '@fluxerjs/builders';
+} from '@fluxer-selfbot/types';
+import { MessageType, Routes } from '@fluxer-selfbot/types';
+import { EmbedBuilder } from '@fluxer-selfbot/builders';
 import { User } from './User.js';
 import { Channel, TextChannel, DMChannel, GuildChannel } from './Channel.js';
 import { Guild } from './Guild.js';

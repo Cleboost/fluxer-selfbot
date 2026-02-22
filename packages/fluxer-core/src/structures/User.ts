@@ -1,8 +1,8 @@
 import { Client } from '../client/Client.js';
 import { Base } from './Base.js';
 import { MessageSendOptions } from '../util/messageUtils.js';
-import { APIChannelPartial, APIUserPartial } from '@fluxerjs/types';
-import { Routes } from '@fluxerjs/types';
+import { APIChannelPartial, APIUserPartial } from '@fluxer-selfbot/types';
+import { Routes } from '@fluxer-selfbot/types';
 import { CDN_URL } from '../util/Constants.js';
 import { cdnDefaultAvatarURL } from '../util/cdn.js';
 import { DMChannel } from './Channel.js';

@@ -1,4 +1,4 @@
-import { APIErrorBody } from '@fluxerjs/types';
+import { APIErrorBody } from '@fluxer-selfbot/types';
 
 export class FluxerAPIError extends Error {
   readonly code: string;

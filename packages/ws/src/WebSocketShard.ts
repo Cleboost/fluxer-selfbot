@@ -6,8 +6,8 @@ import {
 	GatewayIdentifyData,
 	GatewayResumeData,
 	GatewayPresenceUpdateData,
-} from "@fluxerjs/types";
-import { GatewayOpcodes } from "@fluxerjs/types";
+} from "@fluxer-selfbot/types";
+import { GatewayOpcodes } from "@fluxer-selfbot/types";
 import { getDefaultWebSocketSync } from "./utils/getWebSocket.js";
 
 export type WebSocketLike = {

@@ -1,17 +1,17 @@
 import { EventEmitter } from 'events';
-import { Client } from '@fluxerjs/core';
-import { VoiceChannel } from '@fluxerjs/core';
-import { Events } from '@fluxerjs/core';
-import { GatewayOpcodes, Routes } from '@fluxerjs/types';
+import { Client } from '@fluxer-selfbot/core';
+import { VoiceChannel } from '@fluxer-selfbot/core';
+import { Events } from '@fluxer-selfbot/core';
+import { GatewayOpcodes, Routes } from '@fluxer-selfbot/types';
 import { thumbnail } from './streamPreviewPlaceholder.js';
 import {
   GatewayVoiceServerUpdateDispatchData,
   GatewayVoiceStateUpdateDispatchData,
-} from '@fluxerjs/types';
+} from '@fluxer-selfbot/types';
 import { VoiceConnection } from './VoiceConnection.js';
 import { LiveKitRtcConnection, type LiveKitReceiveSubscription } from './LiveKitRtcConnection.js';
 import { isLiveKitEndpoint } from './livekit.js';
-import { Collection } from '@fluxerjs/collection';
+import { Collection } from '@fluxer-selfbot/collection';
 
 /** Maps guild_id -> user_id -> channel_id (null if not in voice). */
 export type VoiceStateMap = Map<string, Map<string, string | null>>;

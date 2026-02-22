@@ -5,14 +5,14 @@
     "": {
       "name": "fluxer-core-monorepo",
       "devDependencies": {
-        "@fluxerjs/builders": "workspace:*",
-        "@fluxerjs/collection": "workspace:*",
-        "@fluxerjs/core": "workspace:*",
-        "@fluxerjs/rest": "workspace:*",
-        "@fluxerjs/types": "workspace:*",
-        "@fluxerjs/util": "workspace:*",
-        "@fluxerjs/voice": "workspace:*",
-        "@fluxerjs/ws": "workspace:*",
+        "@fluxer-selfbot/builders": "workspace:*",
+        "@fluxer-selfbot/collection": "workspace:*",
+        "@fluxer-selfbot/core": "workspace:*",
+        "@fluxer-selfbot/rest": "workspace:*",
+        "@fluxer-selfbot/types": "workspace:*",
+        "@fluxer-selfbot/util": "workspace:*",
+        "@fluxer-selfbot/voice": "workspace:*",
+        "@fluxer-selfbot/ws": "workspace:*",
         "dotenv": "^17.3.1",
         "globals": "^17.3.0",
         "lint-staged": "^16.2.7",
@@ -23,24 +23,24 @@
     "examples": {
       "name": "fluxer-examples",
       "dependencies": {
-        "@fluxerjs/core": "workspace:*",
-        "@fluxerjs/voice": "workspace:*",
+        "@fluxer-selfbot/core": "workspace:*",
+        "@fluxer-selfbot/voice": "workspace:*",
         "youtube-dl-exec": "^3.1.1",
       },
     },
     "packages/builders": {
-      "name": "@fluxerjs/builders",
+      "name": "@fluxer-selfbot/builders",
       "version": "1.2.2",
       "dependencies": {
-        "@fluxerjs/types": "workspace:*",
-        "@fluxerjs/util": "workspace:*",
+        "@fluxer-selfbot/types": "workspace:*",
+        "@fluxer-selfbot/util": "workspace:*",
       },
       "devDependencies": {
         "typescript": "^5.6.0",
       },
     },
     "packages/collection": {
-      "name": "@fluxerjs/collection",
+      "name": "@fluxer-selfbot/collection",
       "version": "1.2.2",
       "devDependencies": {
         "typescript": "^5.6.0",
@@ -48,7 +48,7 @@
       },
     },
     "packages/docgen": {
-      "name": "@fluxerjs/docgen",
+      "name": "@fluxer-selfbot/docgen",
       "version": "1.2.2",
       "dependencies": {
         "doctrine": "^3.0.0",
@@ -61,15 +61,15 @@
       },
     },
     "packages/fluxer-core": {
-      "name": "@fluxerjs/core",
+      "name": "@fluxer-selfbot/core",
       "version": "1.2.2",
       "dependencies": {
-        "@fluxerjs/builders": "workspace:*",
-        "@fluxerjs/collection": "workspace:*",
-        "@fluxerjs/rest": "workspace:*",
-        "@fluxerjs/types": "workspace:*",
-        "@fluxerjs/util": "workspace:*",
-        "@fluxerjs/ws": "workspace:*",
+        "@fluxer-selfbot/builders": "workspace:*",
+        "@fluxer-selfbot/collection": "workspace:*",
+        "@fluxer-selfbot/rest": "workspace:*",
+        "@fluxer-selfbot/types": "workspace:*",
+        "@fluxer-selfbot/util": "workspace:*",
+        "@fluxer-selfbot/ws": "workspace:*",
       },
       "devDependencies": {
         "@types/node": "^20.0.0",
@@ -77,10 +77,10 @@
       },
     },
     "packages/rest": {
-      "name": "@fluxerjs/rest",
+      "name": "@fluxer-selfbot/rest",
       "version": "1.2.2",
       "dependencies": {
-        "@fluxerjs/types": "workspace:*",
+        "@fluxer-selfbot/types": "workspace:*",
       },
       "devDependencies": {
         "@types/node": "^20.0.0",
@@ -88,17 +88,17 @@
       },
     },
     "packages/types": {
-      "name": "@fluxerjs/types",
+      "name": "@fluxer-selfbot/types",
       "version": "1.2.2",
       "devDependencies": {
         "typescript": "^5.6.0",
       },
     },
     "packages/util": {
-      "name": "@fluxerjs/util",
+      "name": "@fluxer-selfbot/util",
       "version": "1.2.2",
       "dependencies": {
-        "@fluxerjs/types": "workspace:*",
+        "@fluxer-selfbot/types": "workspace:*",
       },
       "devDependencies": {
         "typescript": "^5.6.0",
@@ -106,12 +106,12 @@
       },
     },
     "packages/voice": {
-      "name": "@fluxerjs/voice",
+      "name": "@fluxer-selfbot/voice",
       "version": "1.2.2",
       "dependencies": {
-        "@fluxerjs/collection": "workspace:*",
-        "@fluxerjs/core": "workspace:*",
-        "@fluxerjs/types": "workspace:*",
+        "@fluxer-selfbot/collection": "workspace:*",
+        "@fluxer-selfbot/core": "workspace:*",
+        "@fluxer-selfbot/types": "workspace:*",
         "@livekit/rtc-node": "^0.13.24",
         "mp4box": "^0.5.2",
         "opus-decoder": "^0.7.0",
@@ -130,10 +130,10 @@
       },
     },
     "packages/ws": {
-      "name": "@fluxerjs/ws",
+      "name": "@fluxer-selfbot/ws",
       "version": "1.2.2",
       "dependencies": {
-        "@fluxerjs/types": "workspace:*",
+        "@fluxer-selfbot/types": "workspace:*",
         "ws": "^8.18.0",
       },
       "devDependencies": {
@@ -233,23 +233,23 @@
 
     "@exodus/bytes": ["@exodus/bytes@1.14.1", "", {}, "sha512-OhkBFWI6GcRMUroChZiopRiSp2iAMvEBK47NhJooDqz1RERO4QuZIZnjP63TXX8GAiLABkYmX+fuQsdJ1dd2QQ=="],
 
-    "@fluxerjs/builders": ["@fluxerjs/builders@workspace:packages/builders"],
+    "@fluxer-selfbot/builders": ["@fluxer-selfbot/builders@workspace:packages/builders"],
 
-    "@fluxerjs/collection": ["@fluxerjs/collection@workspace:packages/collection"],
+    "@fluxer-selfbot/collection": ["@fluxer-selfbot/collection@workspace:packages/collection"],
 
-    "@fluxerjs/core": ["@fluxerjs/core@workspace:packages/fluxer-core"],
+    "@fluxer-selfbot/core": ["@fluxer-selfbot/core@workspace:packages/fluxer-core"],
 
-    "@fluxerjs/docgen": ["@fluxerjs/docgen@workspace:packages/docgen"],
+    "@fluxer-selfbot/docgen": ["@fluxer-selfbot/docgen@workspace:packages/docgen"],
 
-    "@fluxerjs/rest": ["@fluxerjs/rest@workspace:packages/rest"],
+    "@fluxer-selfbot/rest": ["@fluxer-selfbot/rest@workspace:packages/rest"],
 
-    "@fluxerjs/types": ["@fluxerjs/types@workspace:packages/types"],
+    "@fluxer-selfbot/types": ["@fluxer-selfbot/types@workspace:packages/types"],
 
-    "@fluxerjs/util": ["@fluxerjs/util@workspace:packages/util"],
+    "@fluxer-selfbot/util": ["@fluxer-selfbot/util@workspace:packages/util"],
 
-    "@fluxerjs/voice": ["@fluxerjs/voice@workspace:packages/voice"],
+    "@fluxer-selfbot/voice": ["@fluxer-selfbot/voice@workspace:packages/voice"],
 
-    "@fluxerjs/ws": ["@fluxerjs/ws@workspace:packages/ws"],
+    "@fluxer-selfbot/ws": ["@fluxer-selfbot/ws@workspace:packages/ws"],
 
     "@isaacs/fs-minipass": ["@isaacs/fs-minipass@4.0.1", "", { "dependencies": { "minipass": "7.1.2" } }, "sha512-wgm9Ehl2jpeqP3zw/7mo3kRHFp5MEDhqAdwy1fTGkHAwnkGOVsgpvQhL8B5n1qlb01jV3n/bI0ZfZp5lWA1k4w=="],
 

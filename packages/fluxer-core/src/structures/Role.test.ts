@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { Role } from './Role.js';
-import { PermissionFlags } from '@fluxerjs/util';
+import { PermissionFlags } from '@fluxer-selfbot/util';
 
 /** Minimal client mock — Role.has() only uses role.permissions, not client. */
 function createMockClient() {

@@ -1,11 +1,11 @@
 import { execFile, spawn } from 'node:child_process';
 import { EventEmitter } from 'events';
-import { Client } from '@fluxerjs/core';
-import { VoiceChannel } from '@fluxerjs/core';
+import { Client } from '@fluxer-selfbot/core';
+import { VoiceChannel } from '@fluxer-selfbot/core';
 import {
   GatewayVoiceServerUpdateDispatchData,
   GatewayVoiceStateUpdateDispatchData,
-} from '@fluxerjs/types';
+} from '@fluxer-selfbot/types';
 import {
   AudioStream,
   Room,

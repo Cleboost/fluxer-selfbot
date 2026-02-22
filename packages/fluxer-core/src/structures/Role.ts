@@ -1,12 +1,12 @@
 import { Client } from '../client/Client.js';
 import { Base } from './Base.js';
-import { APIRole, RESTUpdateRoleBody } from '@fluxerjs/types';
-import { Routes } from '@fluxerjs/types';
+import { APIRole, RESTUpdateRoleBody } from '@fluxer-selfbot/types';
+import { Routes } from '@fluxer-selfbot/types';
 import {
   PermissionFlags,
   resolvePermissionsToBitfield,
   type PermissionResolvable,
-} from '@fluxerjs/util';
+} from '@fluxer-selfbot/util';
 
 /** Represents a role in a guild. */
 export class Role extends Base {

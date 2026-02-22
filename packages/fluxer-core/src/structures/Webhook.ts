@@ -1,9 +1,9 @@
 import { Client } from '../client/Client.js';
 import { Base } from './Base.js';
-import { APIEmbed, APIMessage } from '@fluxerjs/types';
-import { APIWebhook, APIWebhookUpdateRequest, APIWebhookTokenUpdateRequest } from '@fluxerjs/types';
-import { Routes } from '@fluxerjs/types';
-import { EmbedBuilder } from '@fluxerjs/builders';
+import { APIEmbed, APIMessage } from '@fluxer-selfbot/types';
+import { APIWebhook, APIWebhookUpdateRequest, APIWebhookTokenUpdateRequest } from '@fluxer-selfbot/types';
+import { Routes } from '@fluxer-selfbot/types';
+import { EmbedBuilder } from '@fluxer-selfbot/builders';
 import { buildSendBody, resolveMessageFiles, type MessageFileData } from '../util/messageUtils.js';
 import { Message } from './Message.js';
 import { User } from './User.js';

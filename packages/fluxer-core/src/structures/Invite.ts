@@ -1,7 +1,7 @@
 import { Client } from '../client/Client.js';
 import { Base } from './Base.js';
-import { APIInvite, APIGuildPartial, APIChannelPartial, APIUser } from '@fluxerjs/types';
-import { Routes } from '@fluxerjs/types';
+import { APIInvite, APIGuildPartial, APIChannelPartial, APIUser } from '@fluxer-selfbot/types';
+import { Routes } from '@fluxer-selfbot/types';
 import { Guild } from './Guild.js';
 import { User } from './User.js';
 

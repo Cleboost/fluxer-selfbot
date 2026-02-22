@@ -4,10 +4,10 @@ import {
 	APIGuild,
 	APIUserPartial,
 	GatewayPresenceUpdateData,
-} from "@fluxerjs/types";
-import { Routes } from "@fluxerjs/types";
+} from "@fluxer-selfbot/types";
+import { Routes } from "@fluxer-selfbot/types";
 import { Guild } from "../structures/Guild.js";
-import { GatewayOpcodes } from "@fluxerjs/types";
+import { GatewayOpcodes } from "@fluxer-selfbot/types";
 
 export class ClientUser extends User {
 	declare readonly client: Client;

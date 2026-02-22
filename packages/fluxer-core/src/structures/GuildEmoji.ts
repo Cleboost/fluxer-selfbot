@@ -1,7 +1,7 @@
 import { Client } from '../client/Client.js';
 import { Base } from './Base.js';
-import { APIEmoji } from '@fluxerjs/types';
-import { Routes } from '@fluxerjs/types';
+import { APIEmoji } from '@fluxer-selfbot/types';
+import { Routes } from '@fluxer-selfbot/types';
 import { CDN_URL } from '../util/Constants.js';
 
 /** Represents a custom emoji in a guild. */

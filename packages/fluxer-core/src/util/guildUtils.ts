@@ -1,4 +1,4 @@
-import { APIGuild, APIRole } from '@fluxerjs/types';
+import { APIGuild, APIRole } from '@fluxer-selfbot/types';
 
 /** Guild payload shape from Fluxer gateway (GUILD_CREATE, GUILD_UPDATE, READY). */
 type GatewayGuildPayload =

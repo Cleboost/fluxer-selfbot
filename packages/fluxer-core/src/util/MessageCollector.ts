@@ -1,5 +1,5 @@
 import { EventEmitter } from 'events';
-import { Collection } from '@fluxerjs/collection';
+import { Collection } from '@fluxer-selfbot/collection';
 import { Client } from '../client/Client.js';
 import { Message } from '../structures/Message.js';
 import { Events } from './Events.js';

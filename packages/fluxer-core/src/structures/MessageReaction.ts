@@ -1,5 +1,5 @@
-import { APIMessage, Routes } from '@fluxerjs/types';
-import { FluxerAPIError, RateLimitError } from '@fluxerjs/rest';
+import { APIMessage, Routes } from '@fluxer-selfbot/types';
+import { FluxerAPIError, RateLimitError } from '@fluxer-selfbot/rest';
 import { FluxerError } from '../errors/FluxerError.js';
 import { ErrorCodes } from '../errors/ErrorCodes.js';
 import { Client } from '../client/Client.js';
@@ -10,7 +10,7 @@ import {
   GatewayMessageReactionAddDispatchData,
   GatewayMessageReactionRemoveDispatchData,
   GatewayReactionEmoji,
-} from '@fluxerjs/types';
+} from '@fluxer-selfbot/types';
 
 /** Represents a reaction added to or removed from a message. */
 export class MessageReaction extends Base {

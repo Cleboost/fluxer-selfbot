@@ -1,17 +1,17 @@
-# @fluxerjs/voice
+# @fluxer-selfbot/voice
 
 Voice for Fluxer bots. Join channels and play WebM/Opus audio.
 
 ## Install
 
 ```bash
-pnpm add @fluxerjs/voice @fluxerjs/core
+pnpm add @fluxer-selfbot/voice @fluxer-selfbot/core
 ```
 
 ## Usage
 
 ```javascript
-import { getVoiceManager, LiveKitRtcConnection } from '@fluxerjs/voice';
+import { getVoiceManager, LiveKitRtcConnection } from '@fluxer-selfbot/voice';
 
 const voiceManager = getVoiceManager(client);
 const connection = await voiceManager.join(channel);

@@ -1,6 +1,6 @@
 import { EventEmitter } from "events";
 import { RequestManager } from "./RequestManager.js";
-import { Routes } from "@fluxerjs/types";
+import { Routes } from "@fluxer-selfbot/types";
 
 /** Options for the REST client. */
 export interface RESTOptions {
@@ -97,7 +97,7 @@ export class REST extends EventEmitter {
 		});
 	}
 
-	/** Route helpers (from @fluxerjs/types) for building paths. */
+	/** Route helpers (from @fluxer-selfbot/types) for building paths. */
 	static get Routes(): typeof Routes {
 		return Routes;
 	}

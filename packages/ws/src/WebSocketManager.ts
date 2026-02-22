@@ -3,7 +3,7 @@ import {
 	APIGatewayBotResponse,
 	GatewayPresenceUpdateData,
 	Routes,
-} from "@fluxerjs/types";
+} from "@fluxer-selfbot/types";
 import { WebSocketShard } from "./WebSocketShard.js";
 import { getDefaultWebSocket } from "./utils/getWebSocket.js";
 
