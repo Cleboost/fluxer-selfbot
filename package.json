@@ -10,10 +10,9 @@
 	],
 	"license": "Apache-2.0",
 	"scripts": {
-		"build": "turbo run build",
 		"build:selfbot": "bun build ./packages/fluxer-core/src/index.ts --outfile ./dist/index.js --target node --bundle --minify",
 		"build:types": "bunx dts-bundle-generator -o ./dist/index.d.ts ./packages/fluxer-core/src/index.ts --no-check",
-		"build:prod": "bun run build:selfbot && bun run build:types"
+		"build": "bun run build:selfbot && bun run build:types"
 	},
 	"devDependencies": {
 		"@fluxer-selfbot/builders": "workspace:*",

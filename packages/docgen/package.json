@@ -6,8 +6,6 @@
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
 	"scripts": {
-		"build": "bun build ./src/index.ts --outfile ./dist/index.js --target node --bundle && bun build ./src/index.ts --outfile ./dist/index.mjs --target node --bundle && bunx tsc --emitDeclarationOnly",
-		"clean": "rm -rf dist",
 		"test": "vitest run --passWithNoTests",
 		"test:coverage": "vitest run --coverage --passWithNoTests"
 	},
