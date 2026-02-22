@@ -209,6 +209,10 @@ export class Client extends EventEmitter {
 	private _ws: WebSocketManager | null = null;
 	/** When waitForGuilds, set of guild IDs we're waiting for GUILD_CREATE on. Null when not waiting. */
 	_pendingGuildIds: Set<string> | null = null;
+	/** Whether the client is authenticated with a user token (empty prefix). */
+	get isUserBot(): boolean {
+		return (this.options.rest?.authPrefix ?? "") === "";
+	}
 
 	/** @param options - Token, REST config, WebSocket, presence, etc. */
 	constructor(public readonly options: ClientOptions = {}) {

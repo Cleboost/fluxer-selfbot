@@ -1,6 +1,7 @@
 {
   "name": "fluxer-selfbot",
-  "version": "0.0.1",
+  "version": "0.0.2",
+  "packageManager": "bun@1.3.9",
   "private": false,
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -8,11 +9,11 @@
     "dist"
   ],
   "license": "Apache-2.0",
-  "description": "",
   "scripts": {
     "build": "turbo run build",
     "build:selfbot": "bun build ./packages/fluxer-core/src/index.ts --outfile ./dist/index.js --target node --bundle --minify",
-    "build:types": "bunx dts-bundle-generator -o ./dist/index.d.ts ./packages/fluxer-core/src/index.ts --no-check"
+    "build:types": "bunx dts-bundle-generator -o ./dist/index.d.ts ./packages/fluxer-core/src/index.ts --no-check",
+    "build:prod": "bun run build:selfbot && bun run build:types"
   },
   "devDependencies": {
     "@fluxerjs/builders": "workspace:*",
@@ -23,26 +24,11 @@
     "@fluxerjs/util": "workspace:*",
     "@fluxerjs/voice": "workspace:*",
     "@fluxerjs/ws": "workspace:*",
-    "@changesets/changelog-github": "^0.5.2",
-    "@changesets/cli": "^2.29.8",
-    "@eslint/js": "^10.0.1",
-    "@typescript-eslint/eslint-plugin": "^8.55.0",
-    "@typescript-eslint/parser": "^8.55.0",
-    "@vitest/coverage-v8": "^4.0.18",
     "dotenv": "^17.3.1",
-    "eslint": "^9.39.2",
-    "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-vue": "^10.8.0",
     "globals": "^17.3.0",
     "lint-staged": "^16.2.7",
-    "prettier": "^3.8.1",
-    "tsx": "^4.19.0",
     "turbo": "^2.3.0",
-    "typescript": "^5.6.0",
-    "typescript-eslint": "^8.55.0",
-    "vitest": "^4.0.18",
-    "vue-eslint-parser": "^10.4.0",
-    "wrangler": "^4.0.0"
+    "typescript": "^5.6.0"
   },
   "overrides": {
     "tar": ">=7.5.8",

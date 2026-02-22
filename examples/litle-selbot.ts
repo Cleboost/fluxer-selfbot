@@ -7,6 +7,15 @@ client.on(Events.Ready, () => {
 		`\n🚀 Selfbot prêt ! Connecté en tant que : ${client.user?.username}`,
 	);
 	console.log(`--------------------------------------------------`);
+	client.user?.setPresence({
+		status: "online",
+		activities: [
+			{
+				name: "coucou",
+				type: 0,
+			},
+		],
+	});
 });
 
 client.on(Events.Error, (err) => console.error(`[WS ERROR]`, err));
