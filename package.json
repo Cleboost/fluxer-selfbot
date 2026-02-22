@@ -15,19 +15,11 @@
 		"build": "bun run build:selfbot && bun run build:types"
 	},
 	"devDependencies": {
-		"@fluxer-selfbot/builders": "workspace:*",
-		"@fluxer-selfbot/collection": "workspace:*",
-		"@fluxer-selfbot/core": "workspace:*",
-		"@fluxer-selfbot/rest": "workspace:*",
-		"@fluxer-selfbot/types": "workspace:*",
-		"@fluxer-selfbot/util": "workspace:*",
-		"@fluxer-selfbot/voice": "workspace:*",
-		"@fluxer-selfbot/ws": "workspace:*",
 		"@types/node": "^25.3.0",
 		"dotenv": "^17.3.1",
-		"globals": "^17.3.0",
-		"lint-staged": "^16.2.7",
-		"turbo": "^2.3.0",
+		"globals": "^17.3.0"
+	},
+	"peerDependencies": {
 		"typescript": "^5.6.0"
 	},
 	"overrides": {
@@ -35,9 +27,7 @@
 		"minimatch": ">=10.2.1"
 	},
 	"workspaces": [
-		"packages/*",
-		"examples",
-		"apps/*"
+		"packages/*"
 	],
 	"repository": {
 		"type": "git",
