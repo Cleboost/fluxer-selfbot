@@ -1,23 +1,6 @@
 {
   "name": "@fluxerjs/rest",
-  "publishConfig": {
-    "access": "public"
-  },
   "version": "1.2.2",
-  "description": "REST client for the Fluxer API",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Cleboost/fluxer-selfbot.git",
-    "directory": "packages/rest"
-  },
-  "bugs": "https://github.com/Cleboost/fluxer-selfbot/issues",
-  "keywords": [
-    "fluxer",
-    "api",
-    "rest",
-    "sdk",
-    "bot"
-  ],
   "license": "Apache-2.0",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -29,9 +12,6 @@
       "require": "./dist/index.js"
     }
   },
-  "files": [
-    "dist"
-  ],
   "scripts": {
     "build": "bun build ./src/index.ts --outfile ./dist/index.js --target node --bundle && bun build ./src/index.ts --outfile ./dist/index.mjs --target node --bundle && bunx tsc --emitDeclarationOnly",
     "clean": "rm -rf dist",
@@ -44,5 +24,6 @@
   "devDependencies": {
     "@types/node": "^20.0.0",
     "typescript": "^5.6.0"
-  }
+  },
+  "private": true
 }
